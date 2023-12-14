@@ -1,0 +1,34 @@
+package br.com.bb.dicre.gesem.apifazai.dto;
+
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode(callSuper=false)
+@Builder
+public class SolicitacaoEsflDto {
+	
+	private Long id;
+	
+	private Integer mci;
+	
+	private LocalDateTime dataSolicitacao ;
+	
+	private BigDecimal limiteProposto;
+	
+	private BigDecimal subLimiteRotativo;
+	
+	private BigDecimal subLimiteInvestimento;
+	
+	private BigDecimal subLimiteRecebiveis;
+
+	private String parecerAgencia;
+}
