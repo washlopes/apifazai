@@ -3,8 +3,6 @@ package br.com.bb.dicre.gesem.apifazai.dto;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-import javax.persistence.Column;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -61,6 +59,100 @@ public class EsflDto {
 	private Integer qtdeAnotTotal;
 	
 	private BigDecimal valorAnotTotal;	
+	
+	private Long anoMesDeb;
+	
+	private Long qtdChequesDevolvidos;
+	
+	private Long qtExcessos;	
+	
+	private BigDecimal somatotarioCreditos;
+	
+	private BigDecimal mediaCreditos;
+	
+	private BigDecimal creditoTrimestral;
+	
+	private BigDecimal creditoSemestral;	
+	
+	private Integer qtdeAnotInformativaPresid;
+	
+	private BigDecimal valorAnotInformativaPresid;
+	
+	private Integer qtdeAnotFracaPresid;
+	
+	private BigDecimal valorAnotFracaPresid;
+	
+	private Integer qtdeAnotRelativaPresid;
+	
+	private BigDecimal valorAnotRelativaPresid;
+	
+	private Integer qtdeAnotRelativaAbsolutaPresid;
+	
+	private BigDecimal valorAnotRelativaAbsolutaPresid;
+	
+	private Integer qtdeAnotImpeditivaPresid;
+	
+	private BigDecimal valorAnotImpeditivaPresid;
+	
+	private Integer qtdeAnotTotalPresid;
+	
+	private BigDecimal valorAnotTotalPresid;
+	
+	private Long anoMesDebPresid;
+	
+	private Long qtdChequesDevolvidosPresid;
+	
+	private Long qtExcessosPresid;	
+	
+	private BigDecimal somatotarioCreditosPresid;
+	
+	private BigDecimal mediaCreditosPresid;
+	
+	private BigDecimal creditoTrimestralPresid;
+	
+	private BigDecimal creditoSemestralPresid;	
+	
+	private Integer qtdeAnotInformativaFinan;
+	
+	private BigDecimal valorAnotInformativaFinan;
+	
+	private Integer qtdeAnotFracaFinan;
+	
+	private BigDecimal valorAnotFracaFinan;
+	
+	private Integer qtdeAnotRelativaFinan;
+	
+	private BigDecimal valorAnotRelativaFinan;
+	
+	private Integer qtdeAnotRelativaAbsolutaFinan;
+	
+	private BigDecimal valorAnotRelativaAbsolutaFinan;
+	
+	private Integer qtdeAnotImpeditivaFinan;
+	
+	private BigDecimal valorAnotImpeditivaFinan;
+	
+	private Integer qtdeAnotTotalFinan;
+	
+	private BigDecimal valorAnotTotalFinan;
+	
+	private Long anoMesDebFinan;
+	
+	private Long qtdChequesDevolvidosFinan;
+	
+	private Long qtExcessosFinan;	
+	
+	private BigDecimal somatotarioCreditosFinan;
+	
+	private BigDecimal mediaCreditosFinan;
+		
+	private BigDecimal creditoTrimestralFinan;
+	
+	private BigDecimal creditoSemestralFinan;
+	
+	private String observacao;
+	
+	private Boolean calculoValido;
 	
 	private BigDecimal limiteV1;
 	

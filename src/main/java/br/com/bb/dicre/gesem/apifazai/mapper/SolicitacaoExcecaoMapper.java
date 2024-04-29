@@ -12,8 +12,8 @@ public class SolicitacaoExcecaoMapper {
 				.numeroProcesso(dto.getNumeroProcesso())
 				.tempoExecucao(LocalDateTime.now())
 				.mci(dto.getMci())	
-				.matricula(dto.getMatricula())				
-				.etapa(dto.getEtapa())
+				.matricula(dto.getMatricula().trim())				
+				.etapa(dto.getEtapa().isEmpty() ? "" : dto.getEtapa())
 				.build();
 	}
 

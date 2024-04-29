@@ -5,41 +5,40 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import br.com.bb.dicre.gesem.apifazai.dto.ExcecaoDto;
-import br.com.bb.dicre.gesem.apifazai.exceptions.BadRequestException;
+import br.com.bb.dicre.gesem.apifazai.dto.FluxoDto;
 import br.com.bb.dicre.gesem.apifazai.exceptions.NotFoundException;
-import br.com.bb.dicre.gesem.apifazai.mapper.ExcecaoMapper;
-import br.com.bb.dicre.gesem.apifazai.modelo.Excecao;
-import br.com.bb.dicre.gesem.apifazai.repository.IExcecaoRepository;
-import br.com.bb.dicre.gesem.apifazai.service.IExcecaoService;
+import br.com.bb.dicre.gesem.apifazai.mapper.FluxoMapper;
+import br.com.bb.dicre.gesem.apifazai.modelo.Fluxo;
+import br.com.bb.dicre.gesem.apifazai.repository.IFluxoRepository;
+import br.com.bb.dicre.gesem.apifazai.service.IFluxoService;
 
 @Service
-public class ExcecaoServiceImpl implements IExcecaoService {
+public class FluxoServiceImpl implements IFluxoService {
 	
-	private final IExcecaoRepository repositorio;
+	private final IFluxoRepository repositorio;
 	
-	public ExcecaoServiceImpl(IExcecaoRepository repositorio) {
+	public FluxoServiceImpl(IFluxoRepository repositorio) {
 		this.repositorio = repositorio;
 	}
 
 	@Override
-	public List<Excecao> findAll() {
+	public List<Fluxo> findAll() {
 		return repositorio.findAll();
 	}
 	@Override
-	public Excecao findById(String numeroProcesso) {
-		return getExcecaoPeloId(numeroProcesso);
+	public Fluxo findById(String numeroProcesso) {
+		return getFluxoPeloId(numeroProcesso);
 	}
 
 	@Override
-	public Excecao findByMci(Long mci) { 
-		return getExcecaoPeloMci(mci);
+	public Fluxo findByMci(Long mci) { 
+		return getFluxoPeloMci(mci);
 	}
 
 	@Override
-	public Excecao criar(ExcecaoDto dto) {	
+	public Fluxo criar(FluxoDto dto) {	
 		
-		if (!dto.getMatricula().equalsIgnoreCase("F6211986") && !dto.getMatricula().equalsIgnoreCase("F8365803") && 
+		/* if (!dto.getMatricula().equalsIgnoreCase("F6211986") && !dto.getMatricula().equalsIgnoreCase("F8365803") && 
 				!dto.getMatricula().equalsIgnoreCase("F8054909") && !dto.getMatricula().equalsIgnoreCase("F8935676") &&
 				!dto.getMatricula().equalsIgnoreCase("F3800577") && !dto.getMatricula().equalsIgnoreCase("F3074519") &&
 				!dto.getMatricula().equalsIgnoreCase("F6881699") && !dto.getMatricula().equalsIgnoreCase("F8441891") && 
@@ -54,40 +53,38 @@ public class ExcecaoServiceImpl implements IExcecaoService {
 				!dto.getMatricula().equalsIgnoreCase("F5950973") && !dto.getMatricula().equalsIgnoreCase("F6874937") &&
 				!dto.getMatricula().equalsIgnoreCase("F8527877") && !dto.getMatricula().equalsIgnoreCase("F9343092")) {
 			throw new BadRequestException("Inclusão não permitida para a matrícula!");
-		}
+		} */
 		
-		return repositorio.save(ExcecaoMapper.fromDtoToEntity(dto));
+		return repositorio.save(FluxoMapper.fromDtoToEntity(dto));
 	}
 
 	@Override
-	public Excecao atualizar(ExcecaoDto dto) {
-		Excecao excecao = getExcecaoPeloMci(dto.getMci());	
+	public Fluxo atualizar(FluxoDto dto) {
+		Fluxo fluxo = getFluxoPeloMci(dto.getMci());		
 		
-		dto.setMatricula(excecao.getMatricula());
-		dto.setTempoExecucao(excecao.getTempoExecucao());
-		dto.setPrazo(excecao.getPrazo());		
+		dto.setTempoExecucao(fluxo.getTempoExecucao());				
 		
-		return repositorio.save(ExcecaoMapper.fromDtoToEntity(dto));
+		return repositorio.save(FluxoMapper.fromDtoToEntity(dto));
 	}
 	
-	private Excecao getExcecaoPeloId(String numeroProcesso) {
-		Optional <Excecao> excecao = repositorio.findById(numeroProcesso);
+	private Fluxo getFluxoPeloId(String numeroProcesso) {
+		Optional <Fluxo> fluxo = repositorio.findById(numeroProcesso);
 		
-		if (excecao.isEmpty()) {			
+		if (fluxo.isEmpty()) {			
 			throw new NotFoundException("Solicitacao não encontrada!");
 		}
 		
-		return excecao.get();
+		return fluxo.get();
 	}
 	
-	private Excecao getExcecaoPeloMci(Long mci) {
-		Optional <Excecao> excecao = repositorio.findByMci(mci);
+	private Fluxo getFluxoPeloMci(Long mci) {
+		Optional <Fluxo> fluxo = repositorio.findByMci(mci);
 		
-		if (excecao.isEmpty()) {			
+		if (fluxo.isEmpty()) {			
 			throw new NotFoundException("Solicitacao não encontrada!");
 		}
 		
-		return excecao.get();
+		return fluxo.get();
 	}
 
 }

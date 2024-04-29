@@ -37,7 +37,7 @@ public class SolicitacaoExcecaoController {
 	}
 	
 	
-	@PostMapping("/fluxo")
+	@PostMapping("/fluxos")
 	public ResponseEntity <SolicitacaoExcecao> criar(@RequestBody SolicitacaoExcecaoDto excecao) {		
 		return ResponseEntity.status(HttpStatus.CREATED).body(servico.salvar(excecao));
 	}

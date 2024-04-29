@@ -3,6 +3,7 @@ package br.com.bb.dicre.gesem.apifazai.mapper;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 import br.com.bb.dicre.gesem.apifazai.dto.ExcecaoDto;
 import br.com.bb.dicre.gesem.apifazai.modelo.Excecao;
@@ -18,7 +19,8 @@ public class ExcecaoMapper {
 				.prazo(retornaPrazo())
 				.matricula(dto.getMatricula())
 				.texto(dto.getTexto())
-				.etapa(dto.getEtapa())
+				.etapa(Objects.isNull(dto.getEtapa()) || dto.getEtapa().isEmpty() ? "" : dto.getEtapa())
+				.metodologiaAnalitica(dto.getMetodologiaAnalitica())
 				.build();
 	}
 	
