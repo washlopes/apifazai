@@ -1,7 +1,6 @@
 package br.com.bb.dicre.gesem.apifazai.dto;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import lombok.AllArgsConstructor;
@@ -15,27 +14,19 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 @Builder
-public class ExcecaoDto implements Serializable {
+public class FluxoDto implements Serializable {
 	
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 9073801304231303207L;
-	
-	private String numeroProcesso;
+	private static final long serialVersionUID = -2145477614732472955L;
 
+	private String numero;
+	
 	private LocalDateTime tempoExecucao;
 	
-	private Long mci;
-	
-	private LocalDate prazo;
-	
-	private String matricula;
-	
-	private String texto;
+	private Long mci;	
 	
 	private String etapa;
-	
-	private String metodologiaAnalitica;
 
 }

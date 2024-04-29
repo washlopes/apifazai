@@ -1,6 +1,5 @@
 package br.com.bb.dicre.gesem.apifazai.dto;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import lombok.AllArgsConstructor;

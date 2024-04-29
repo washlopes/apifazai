@@ -14,30 +14,29 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 @Builder
 @Entity
-@Table(name="solicitacao_excecao", schema="fazai")
-public class SolicitacaoExcecao implements Serializable {
+@Table(name="fluxo", schema="fazai")
+public class Fluxo implements Serializable {
 	
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 4417597086573793633L;
+	private static final long serialVersionUID = -2045968911728505482L;
 
 	@Id
-	@Column(name="nr_processo")
-	private String numeroProcesso;
+	@Column(name="numero")
+	private String numero;
 	
 	@Column(name="ts_execucao")
 	private LocalDateTime tempoExecucao;
 	
 	private Long mci;	
-	
-	private String matricula;
 	
 	private String etapa;
 

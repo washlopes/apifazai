@@ -46,4 +46,7 @@ public class Excecao implements Serializable {
 	
 	private String etapa;
 	
+	@Column(name="met_analitica")
+	private String metodologiaAnalitica;
+	
 }
